@@ -22,6 +22,19 @@ def deinit_oled():
     i2c.deinit()
 
 def init_module(i2c):
+    # Wait for the I2C device to be ready (retry mechanism)
+    while not i2c.try_lock():
+        pass
+    
+    try:
+        # Try to scan for the device (0x73) up to 5 times
+        for _ in range(5):
+            if 0x73 in i2c.scan():
+                break
+            time.sleep(0.1) 
+    finally:
+        i2c.unlock()
+    
     #Initialize the APDS9960 colour
     global paj7620_sensor
     paj7620_sensor = edupico2_paj7620.PAJ7620(i2c)
