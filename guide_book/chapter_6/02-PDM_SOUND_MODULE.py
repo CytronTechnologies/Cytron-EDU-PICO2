@@ -1,6 +1,6 @@
 import board, time, array, math, audiobusio
 
-mic = audiobusio.PDMIn(board.GP3, board.GP2, sample_rate=16000, bit_depth=16)
+mic = audiobusio.PDMIn(board.GP3, board.GP2, sample_rate=32000, bit_depth=16) # see note below on sampling rate
 samples = array.array('H', [0] * 1024)
 
 def log10(x):
@@ -20,3 +20,19 @@ while True:
     else:
         print("Magnitude is too small to calculate dB.")
     time.sleep(0.1)
+    
+    
+# =========================================================
+# NOTE
+# =========================================================
+# The sampling rate of the PDM microphone can be adjusted
+# depending on the application requirements.
+#
+# PDM Clock Frequency:
+#     Clock Frequency = Sampling Rate × 64
+#
+# Supported Clock Frequency Range:
+# (min)   1.20 MHz  -> 18.75 kHz sampling rate
+# (typ)   2.40 MHz  -> 37.50 kHz sampling rate 
+# (max)   3.25 MHz  -> 50.78 kHz sampling rate
+# =========================================================

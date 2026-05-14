@@ -1,6 +1,6 @@
 """
 DESCRIPTION:
-Demo-Code for EDU PICO
+Demo-Code for EDU PICO 2
 This demo code is written in CircuitPython and it serves
 as an easy quality check when you first receive the board.
 
@@ -12,8 +12,7 @@ WEBSITE  : www.cytron.io
 EMAIL    : support@cytron.io
 
 MORE INFO:
-https://www.cytron.io/p-edu-project-and-innovation-kits-for-pico-w
-https://circuitpython.org/board/raspberry_pi_pico_w
+https://my.cytron.io/p-edu-pico-2-project-innovation-kit-for-pico-2-w
 """
 import board
 import busio

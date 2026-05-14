@@ -24,7 +24,7 @@ def deinit_oled():
 def init_module():
     #Initialize the PDM Microphone colour
     global mic
-    mic = audiobusio.PDMIn(board.GP3, board.GP2, sample_rate=16000, bit_depth=16)
+    mic = audiobusio.PDMIn(board.GP3, board.GP2, sample_rate=32000, bit_depth=16)
     
     global interval
     interval = time.monotonic()
